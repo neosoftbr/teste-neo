@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  neo.user:
+    image: neo.user
+    container_name: "app"
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - "./neo.user.jar:/app.jar"
+    command: ['java', '-jar', '/app.jar']
