@@ -3,10 +3,16 @@ version: "3.3"
 services:
   neo.user:
     image: neo.user
-    container_name: "app"
+    container_name: "neo.user"
     restart: always
     ports:
       - 8080:8080
     volumes:
-      - "./neo.user.jar:/app.jar"
+      - "./target/neo.user.jar:/app.jar"
     command: ['java', '-jar', '/app.jar']
+    networks:  
+      - local-dev2
+networks:
+  local-dev2:
+    external: false
+    name: local-dev2

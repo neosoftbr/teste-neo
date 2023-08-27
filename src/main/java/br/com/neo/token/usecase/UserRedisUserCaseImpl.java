@@ -88,6 +88,7 @@ public class UserRedisUserCaseImpl implements UserRedisUserCase{
 		tempJson.put("age", token.getInt("age"));
 		tempJson.put("name", token.getString("name"));
 		jedis.append(chave, tempJson.toString());
+		jedis.expire(chave, 10);
 	}
 
 
